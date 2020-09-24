@@ -1,11 +1,113 @@
 #:import hex kivy.utils.get_color_from_hex
-
+#:import Window hover_behaviour.Window
 <IconButton@Button+HoverBehavior>:
     background_normal: ''
     background_color: hex('#030202f5')
     size_hint_y: None
     height: '100dp'
-
+    font_name: 'fontawesome-free\\fa-solid-900.ttf'
+    font_size: '40dp'
+<WindowButton@Button>:
+    background_normal: ''
+    background_color: hex('#030202f5')
+    size_hint_x: None
+    width: '10dp'
+    font_name: 'fontawesome-free\\fa-solid-900.ttf'
+<SideBar@ScrollView>:
+    size_hint_x: None
+    width: '100dp'
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint_y: None
+        height: self.minimum_height
+        canvas.before:
+            Color:
+                rgba: hex('#222222')
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        IconButton:
+            id: icon_button
+            text: "\uf015"
+            on_enter: app.change_cursor("hand")
+            on_enter: self.color = hex('#ffe4c4')
+            on_enter: self.background_color = hex('#222244')
+            on_enter: self.font_size = '55dp'
+            on_leave: app.change_cursor("arrow")
+            on_leave: self.background_color = hex('#030202f5')
+            on_leave: self.color = hex('#ffffff')
+            on_leave: self.font_size = '40dp'
+        IconButton:
+            text: "\uf084"
+            on_enter: app.change_cursor("hand")
+            on_enter: self.color = hex('#ffe4c4')
+            on_enter: self.font_size = '55dp'
+            on_enter: self.color = hex('#ffe4c4')
+            on_enter: self.background_color = hex('#222244')
+            on_leave: app.change_cursor("arrow")
+            on_leave: self.background_color = hex('#030202f5')
+            on_leave: self.color = hex('#ffffff')
+            on_leave: self.font_size = '40dp'
+        IconButton:
+            text: "\uf555"
+            on_enter: app.change_cursor("hand")
+            on_enter: self.color = hex('#ffe4c4')
+            on_enter: self.font_size = '55dp'
+            on_enter: self.background_color = hex('#222244')
+            on_leave: app.change_cursor("arrow")
+            on_leave: self.background_color = hex('#030202f5')
+            on_leave: self.color = hex('#ffffff')
+            on_leave: self.font_size = '40dp'
+        IconButton:
+            text: "\uf4fe"
+            on_enter: app.change_cursor("hand")
+            on_enter: self.color = hex('#ffe4c4')
+            on_enter: self.font_size = '55dp'
+            on_enter: self.background_color = hex('#222244')
+            on_leave: app.change_cursor("arrow")
+            on_leave: self.background_color = hex('#030202f5')
+            on_leave: self.color = hex('#ffffff')
+            on_leave: self.font_size = '40dp'
+        IconButton:
+            text: "\uf007"
+            on_enter: app.change_cursor("hand")
+            on_enter: self.color = hex('#ffe4c4')
+            on_enter: self.font_size = '55dp'
+            on_enter: self.background_color = hex('#222244')
+            on_leave: app.change_cursor("arrow")
+            on_leave: self.background_color = hex('#030202f5')
+            on_leave: self.color = hex('#ffffff')
+            on_leave: self.font_size = '40dp'
+        IconButton:
+            text: "\uf0d1"
+            on_enter: app.change_cursor("hand")
+            on_enter: self.color = hex('#ffe4c4')
+            on_enter: self.font_size = '55dp'
+            on_enter: self.background_color = hex('#222244')
+            on_leave: app.change_cursor("arrow")
+            on_leave: self.background_color = hex('#030202f5')
+            on_leave: self.color = hex('#ffffff')
+            on_leave: self.font_size = '40dp'
+        IconButton:
+            text: "\uf0ad"
+            on_enter: app.change_cursor("hand")
+            on_enter: self.color = hex('#ffe4c4')
+            on_enter: self.font_size = '55dp'
+            on_enter: self.background_color = hex('#222244')
+            on_leave: app.change_cursor("arrow")
+            on_leave: self.background_color = hex('#030202f5')
+            on_leave: self.color = hex('#ffffff')
+            on_leave: self.font_size = '40dp'
+        IconButton:
+            text: "\uf120"
+            on_enter: app.change_cursor("hand")
+            on_enter: self.color = hex('#ffe4c4')
+            on_enter: self.font_size = '55dp'
+            on_enter: self.background_color = hex('#222244')
+            on_leave: app.change_cursor("arrow")
+            on_leave: self.background_color = hex('#030202f5')
+            on_leave: self.color = hex('#ffffff')
+            on_leave: self.font_size = '40dp'
 <HomeScreen>:
     BoxLayout:
         orientation: 'vertical'
@@ -17,71 +119,40 @@
                 Rectangle:
                     size: self.size
                     pos: self.pos
-            size_hint_y: 0.05
+            size_hint_y: None
+            height: '30dp'
+            spacing: '10dp'
+            BoxLayout:
+                size_hint_x: 0.9
+            BoxLayout:
+                size_hint_x: None
+                width: '50dp'
+                GridLayout:
+                    cols: 3
+                    spacing: '15dp'
+                    padding: '5dp'
+                    WindowButton:
+                        text: '\uf13a'
+                        font_size: '15dp'
+                        on_press: Window.minimize()
+                        color: hex('#ffd700')
+                    # WindowButton:
+                    #     text: '\uf139'
+                    #     font_size: '15dp'
+                    #     on_press: Window.maximize()
+                    #     color: hex('#00ff00')
+                    WindowButton:
+                        text: '\uf410'
+                        font_size: '18dp'
+                        on_press: app.stop()
+                        color: hex('#ff0000')
+                        halign: 'right'
         BoxLayout:
             orientation: 'horizontal'
-            ScrollView:
-                size_hint_x: None
-                width: '100dp'
-                BoxLayout:
-                    orientation: 'vertical'
-                    size_hint_y: None
-                    height: self.minimum_height
-                    canvas.before:
-                        Color:
-                            rgba: hex('#222222')
-                        Rectangle:
-                            size: self.size
-                            pos: self.pos
-                    IconButton:
-                        id: icon_button
-                        text: "1"
-                        on_enter: root.change_cursor("hand")
-                        on_enter: self.background_color = hex('#222244')
-                        on_leave: root.change_cursor("arrow")
-                        on_leave: self.background_color = hex('#030202f5')
-                    IconButton:
-                        text: "2"
-                        on_enter: root.change_cursor("hand")
-                        on_enter: self.background_color = hex('#222244')
-                        on_leave: root.change_cursor("arrow")
-                        on_leave: self.background_color = hex('#030202f5')
-                    IconButton:
-                        text: "3"
-                        on_enter: root.change_cursor("hand")
-                        on_enter: self.background_color = hex('#222244')
-                        on_leave: root.change_cursor("arrow")
-                        on_leave: self.background_color = hex('#030202f5')
-                    IconButton:
-                        text: "4"
-                        on_enter: root.change_cursor("hand")
-                        on_enter: self.background_color = hex('#222244')
-                        on_leave: root.change_cursor("arrow")
-                        on_leave: self.background_color = hex('#030202f5')
-                    IconButton:
-                        text: "5"
-                        on_enter: root.change_cursor("hand")
-                        on_enter: self.background_color = hex('#222244')
-                        on_leave: root.change_cursor("arrow")
-                        on_leave: self.background_color = hex('#030202f5')
-                    IconButton:
-                        text: "6"
-                        on_enter: root.change_cursor("hand")
-                        on_enter: self.background_color = hex('#222244')
-                        on_leave: root.change_cursor("arrow")
-                        on_leave: self.background_color = hex('#030202f5')
-                    IconButton:
-                        text: "7"
-                        on_enter: root.change_cursor("hand")
-                        on_enter: self.background_color = hex('#222244')
-                        on_leave: root.change_cursor("arrow")
-                        on_leave: self.background_color = hex('#030202f5')
-                    IconButton:
-                        text: "8"
-                        on_enter: root.change_cursor("hand")
-                        on_enter: self.background_color = hex('#222244')
-                        on_leave: root.change_cursor("arrow")
-                        on_leave: self.background_color = hex('#030202f5')
+            SideBar:
+                # Sidebar inherits Scroll view as you scene above
+                # In order to reduce codes in this BoxLayout and for reusability
+                # I shifted Sidebar to above
             BoxLayout:
                 canvas.before:
                     Color:
