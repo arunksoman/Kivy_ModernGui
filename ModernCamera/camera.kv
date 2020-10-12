@@ -1,0 +1,36 @@
+#:import hex kivy.utils.get_color_from_hex
+<CircularLabel@Label>:
+    canvas.before:
+        Color:
+            rgb: hex('#ffffff') if app.pressed else hex('#d9e3dd')
+        Ellipse:
+            # pos: 100, 100
+            size: min(self.size)*0.96, min(self.size)*0.96
+            pos: (0.5*self.size[0]-0.5*min(self.size)), 0.5*self.size[1]-0.5*min(self.size)+80
+            texture: self.texture
+<MyCamera>:
+    BoxLayout:
+        orientation: 'vertical'
+        canvas.before:
+            Color:
+                rgb: hex('#d9e3dd')
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        BoxLayout:
+            padding: 7
+            orientation: 'vertical'
+            CircularLabel:
+                id: img1
+            Button:
+                text: "Open Cam"
+                size_hint_y: None
+                height: '48dp'
+                background_normal: ''
+                background_color: hex('#05d69e')
+                size_hint_x: None
+                width: '120dp'
+                pos_hint: {'center_x': 0.48, 'center_y': 0.5}
+                on_press: app.pressed=True
+                on_release: root.open_cam()
+    

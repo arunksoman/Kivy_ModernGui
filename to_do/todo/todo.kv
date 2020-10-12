@@ -1,0 +1,61 @@
+#:import hex kivy.utils.get_color_from_hex
+
+<FlatInput@TextInput>:
+    multiline: False
+    size_hint_y: None
+    padding: '14dp'
+    height: '48dp'
+    background_normal: ''
+    background_color: hex('#c9f3f0')
+    border_radius: '5dp'
+    # background_active: ''
+<FlatButton@Button>:
+    background_normal: ''
+    background_color: hex('#4ccdc4')
+    size_hint_y: None
+    height: '48dp'
+
+<HomePage>:
+    BoxLayout:
+        id: homepage
+        space_x: homepage.size[0]//3
+        space_y: homepage.size[1]//9
+        orientation: 'vertical'
+        padding: homepage.space_x, homepage.space_y
+        canvas.before:
+            Color:
+                rgba: hex('#003357')
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        BoxLayout:
+            canvas.before:
+                Color:
+                    rgba: hex('#ecf1f3')
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            orientation: 'vertical'
+            spacing: '10dp'
+            padding: '10dp'
+            FlatInput:
+                id: name
+                hint_text: "Enter Name"
+                focus: True
+                on_text_validate: username.focus = True
+            FlatInput:
+                id: username
+                hint_text: "Enter Username"
+                on_text_validate: password.focus = True
+            FlatInput:
+                id: password
+                hint_text: "Enter Password"
+                on_text_validate: retype_password.focus = True
+            FlatInput:
+                id: retype_password
+                hint_text: "Retype Password"
+            FlatButton:
+                text: "Sign Up"
+            Label:
+                text: ""

@@ -14,6 +14,14 @@ class HomeScreen(Screen):
 
 class Modern_guiApp(App):
     sm = ScreenManager()
+    maximized = False
+    def min_max(self, maximized):
+        app = App.get_running_app()
+        app.maximized = maximized
+        if maximized:
+            Window.maximize()
+        else:
+            Window.restore()
     def change_cursor(self, cursor_type):
         Window.set_system_cursor(cursor_type)
     def build(self):
@@ -21,6 +29,6 @@ class Modern_guiApp(App):
         return Modern_guiApp.sm
 
 if __name__ == "__main__":
-    Window.size = (740, 540)
-    # # Window.borderless = True
+    Window.size = (780, 580)
+    # Window.borderless = True
     Modern_guiApp().run()

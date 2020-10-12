@@ -1,0 +1,42 @@
+#:import hex kivy.utils.get_color_from_hex
+<CircularProgressBar@ProgressBar>:
+    id: circular_progress
+    thickness: 10
+    texture_size: 10
+    size_hint: (None, None)
+    height: 200
+    width: 200
+    canvas:
+        Color:
+            rgba: hex('#111111')
+        Ellipse:
+            size: self.size
+            pos: self.pos
+    canvas.after:
+        Color:
+            rgba: hex('#ff0000')
+        Ellipse:
+            pos: self.pos
+            size: self.size
+            angle_end: 400
+            # angle_end: 0.001 if self.value_normalized == 0 else self.value_normalized*36
+        Color:
+            rgba: hex('#000000')
+        Ellipse:
+            pos: self.pos[0] + self.thickness / 2, self.pos[1] + self.thickness / 2
+            size: self.size[0] - self.thickness, self.size[1] - self.thickness
+        # Color:
+        #     rgba: hex('#ffffff')
+        # Rectangle:
+        #     # texture: self.label.texture
+        #     size: self.texture_size
+        #     pos: self.size[0] / 2 - self.texture_size[0] / 2 + self.pos[0], self.size[1] / 2 - self.texture_size[1] / 2 + self.pos[1]
+    
+<HomeScreen>:
+    BoxLayout:
+        padding: self.size[0] / 3, self.size[1] / 3
+        CircularProgressBar:
+            Label:
+                id: progress_text
+                text: "0%"
+                font_size: 40

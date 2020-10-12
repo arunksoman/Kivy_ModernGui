@@ -6,8 +6,14 @@
     size_hint_y: None
     height: '100dp'
     font_name: 'fontawesome-free\\fa-solid-900.ttf'
-    font_size: '40dp'
-<WindowButton@Button>:
+    font_size: '35dp'
+# <WindowButton@ActionButton+HoverBehavior>:
+#     background_normal: ''
+#     background_color: hex('#030202f5')
+#     size_hint_x: None
+#     width: '10dp'
+#     font_name: 'fontawesome-free\\fa-solid-900.ttf'
+<WindowButton@Button+HoverBehavior>:
     background_normal: ''
     background_color: hex('#030202f5')
     size_hint_x: None
@@ -31,84 +37,85 @@
             text: "\uf015"
             on_enter: app.change_cursor("hand")
             on_enter: self.color = hex('#ffe4c4')
-            on_enter: self.background_color = hex('#222244')
+            on_enter: self.background_color = hex('#42a5f5')
             on_enter: self.font_size = '55dp'
             on_leave: app.change_cursor("arrow")
             on_leave: self.background_color = hex('#030202f5')
             on_leave: self.color = hex('#ffffff')
-            on_leave: self.font_size = '40dp'
+            on_leave: self.font_size = '35dp'
         IconButton:
             text: "\uf084"
             on_enter: app.change_cursor("hand")
             on_enter: self.color = hex('#ffe4c4')
             on_enter: self.font_size = '55dp'
             on_enter: self.color = hex('#ffe4c4')
-            on_enter: self.background_color = hex('#222244')
+            on_enter: self.background_color = hex('#42a5f5')
             on_leave: app.change_cursor("arrow")
             on_leave: self.background_color = hex('#030202f5')
             on_leave: self.color = hex('#ffffff')
-            on_leave: self.font_size = '40dp'
+            on_leave: self.font_size = '35dp'
         IconButton:
             text: "\uf555"
             on_enter: app.change_cursor("hand")
             on_enter: self.color = hex('#ffe4c4')
             on_enter: self.font_size = '55dp'
-            on_enter: self.background_color = hex('#222244')
+            on_enter: self.background_color = hex('#42a5f5')
             on_leave: app.change_cursor("arrow")
             on_leave: self.background_color = hex('#030202f5')
             on_leave: self.color = hex('#ffffff')
-            on_leave: self.font_size = '40dp'
+            on_leave: self.font_size = '35dp'
         IconButton:
             text: "\uf4fe"
             on_enter: app.change_cursor("hand")
             on_enter: self.color = hex('#ffe4c4')
             on_enter: self.font_size = '55dp'
-            on_enter: self.background_color = hex('#222244')
+            on_enter: self.background_color = hex('#42a5f5')
             on_leave: app.change_cursor("arrow")
             on_leave: self.background_color = hex('#030202f5')
             on_leave: self.color = hex('#ffffff')
-            on_leave: self.font_size = '40dp'
+            on_leave: self.font_size = '35dp'
         IconButton:
             text: "\uf007"
             on_enter: app.change_cursor("hand")
             on_enter: self.color = hex('#ffe4c4')
             on_enter: self.font_size = '55dp'
-            on_enter: self.background_color = hex('#222244')
+            on_enter: self.background_color = hex('#42a5f5')
             on_leave: app.change_cursor("arrow")
             on_leave: self.background_color = hex('#030202f5')
             on_leave: self.color = hex('#ffffff')
-            on_leave: self.font_size = '40dp'
+            on_leave: self.font_size = '35dp'
         IconButton:
             text: "\uf0d1"
             on_enter: app.change_cursor("hand")
             on_enter: self.color = hex('#ffe4c4')
             on_enter: self.font_size = '55dp'
-            on_enter: self.background_color = hex('#222244')
+            on_enter: self.background_color = hex('#42a5f5')
             on_leave: app.change_cursor("arrow")
             on_leave: self.background_color = hex('#030202f5')
             on_leave: self.color = hex('#ffffff')
-            on_leave: self.font_size = '40dp'
+            on_leave: self.font_size = '35dp'
         IconButton:
             text: "\uf0ad"
             on_enter: app.change_cursor("hand")
             on_enter: self.color = hex('#ffe4c4')
             on_enter: self.font_size = '55dp'
-            on_enter: self.background_color = hex('#222244')
+            on_enter: self.background_color = hex('#42a5f5')
             on_leave: app.change_cursor("arrow")
             on_leave: self.background_color = hex('#030202f5')
             on_leave: self.color = hex('#ffffff')
-            on_leave: self.font_size = '40dp'
+            on_leave: self.font_size = '35dp'
         IconButton:
             text: "\uf120"
             on_enter: app.change_cursor("hand")
             on_enter: self.color = hex('#ffe4c4')
             on_enter: self.font_size = '55dp'
-            on_enter: self.background_color = hex('#222244')
+            on_enter: self.background_color = hex('#42a5f5')
             on_leave: app.change_cursor("arrow")
             on_leave: self.background_color = hex('#030202f5')
             on_leave: self.color = hex('#ffffff')
-            on_leave: self.font_size = '40dp'
+            on_leave: self.font_size = '35dp'
 <HomeScreen>:
+    
     BoxLayout:
         orientation: 'vertical'
         BoxLayout:
@@ -121,12 +128,12 @@
                     pos: self.pos
             size_hint_y: None
             height: '30dp'
-            spacing: '10dp'
+            spacing: '5dp'
             BoxLayout:
-                size_hint_x: 0.9
+                size_hint_x: 0.8
             BoxLayout:
                 size_hint_x: None
-                width: '50dp'
+                width: '80dp'
                 GridLayout:
                     cols: 3
                     spacing: '15dp'
@@ -136,17 +143,55 @@
                         font_size: '15dp'
                         on_press: Window.minimize()
                         color: hex('#ffd700')
-                    # WindowButton:
-                    #     text: '\uf139'
-                    #     font_size: '15dp'
-                    #     on_press: Window.maximize()
-                    #     color: hex('#00ff00')
+                    WindowButton:
+                        text: '\uf139'
+                        font_size: '15dp'
+                        on_press: app.min_max(False) if app.maximized else app.min_max(True)
+                        color: hex('#00ff00')
                     WindowButton:
                         text: '\uf410'
                         font_size: '18dp'
                         on_press: app.stop()
                         color: hex('#ff0000')
                         halign: 'right'
+        # ActionBar:
+        #     size_hint_x: None
+        #     pos_hint: {'top': 1, 'right': 0.95}
+        #     width: self.width
+        #     height: 35
+        #     background_image: ''
+        #     background_color: hex('#030202f5')
+        #     ActionView:
+        #         spacing: 0
+        #         # use_separator: True
+        #         ActionPrevious:
+        #             title: 'Modern Flat UI'
+        #             # app_icon: 'icon can give here'
+        #             with_previous: False
+        #             color: hex('#ffffff')
+        #         ActionOverflow:
+        #         WindowButton:
+        #             text: '\uf13a'
+        #             font_size: '15dp'
+        #             on_press: Window.minimize()
+        #             color: hex('#ffd700')
+        #             on_enter: self.color = hex('#ffd7dd')
+        #             on_leave: self.color = hex('#ffd700')
+        #         WindowButton:
+        #             text: '\uf139'
+        #             font_size: '15dp'
+        #             on_press: app.min_max(False) if app.maximized else app.min_max(True)
+        #             color: hex('#00ff00')
+        #             on_enter: self.color = hex('#00ffff')
+        #             on_leave: self.color = hex('#00ff00')
+        #         WindowButton:
+        #             text: '\uf410'
+        #             font_size: '18dp'
+        #             on_press: app.stop()
+        #             color: hex('#ff0000')
+        #             on_enter: self.color = hex('#ff0000')
+        #             on_leave: self.color = hex('#ff00ff')
+
         BoxLayout:
             orientation: 'horizontal'
             SideBar:
